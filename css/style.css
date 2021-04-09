@@ -8,7 +8,6 @@
 #00fff0
 #00d1ff
 #3d6cb9
-
 buttons????
 #1778F2
 #3897f0
@@ -184,9 +183,7 @@ aside.card:hover {
 
 /* Padding Classes */
 .py-1 {
-     {
-        color: #fff;
-    }
+    color: #fff;
     padding: 1.5rem 0;
 }
 .py-2 {
@@ -226,11 +223,9 @@ aside.card:hover {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    grid-template-columns: 6fr 3fr 2fr;
     padding: 1rem;
     align-items: center;
 }
-
 /* Our logo */
 
 #main-nav .logo {
@@ -249,6 +244,16 @@ aside.card:hover {
     margin-left: 5rem;
     font-weight: bold;
     color: #fff;
+}
+@media (max-width: 768px) {
+    #main-nav ul {
+        justify-content: center;
+        width: 100%;
+    }
+    #main-nav ul li a {
+        justify-content: center;
+        margin-left: 0;
+    }
 }
 
 #main-nav ul li a.current {
