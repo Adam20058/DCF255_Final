@@ -1,0 +1,242 @@
+<!-- **************************************************************************************************
+  _    _      _                            _____      ___  ___       ______                
+| |  | |    | |                          |_   _|     |  \/  |       | ___ \               
+| |  | | ___| | ___ ___  _ __ ___   ___    | | ___   | .  . |_   _  | |_/ /_ _  __ _  ___ 
+| |/\| |/ _ \ |/ __/ _ \| '_ ` _ \ / _ \   | |/ _ \  | |\/| | | | | |  __/ _` |/ _` |/ _ \
+\  /\  /  __/ | (__ (_) | | | | | |  __/   | | (_) | | |  | | |_| | | | | (_| | (_| |  __/
+ \/  \/ \___|_|\___\___/|_| |_| |_|\___|   \_/\___/  \_|  |_/\__, | \_|  \__,_|\__, |\___|
+                                                              __/ |             __/ |     
+                                                             |___/             |___/         
+
+        Looks like you're checking out the source code.
+        Mi casa su Casa. Welcome! 
+        
+        Don't mark too hard. I hope you enjoy what we accomplished :)
+        
+        - Adam Jemal 
+*************************************************************************************************** -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link
+      rel="stylesheet"
+      media="screen and (max-width: 768px)"
+      href="../css/mobile.css"
+    />
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+    <script
+      src="https://kit.fontawesome.com/d5db4f80e7.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Group9 | SMTP Demo</title>
+  </head>
+
+  <body>
+    <nav id="main-nav">
+      <div class="container">
+        <a href="../index.html"
+          ><img
+            src="../img/logo/logo_modificiation.png"
+            alt="Findings Beyond The Classroom"
+            class="logo"
+        /></a>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../mission.html"> Mission</a></li>
+          <li><a href="../about.html">About</a></li>
+        </ul>
+      </div>
+    </nav>
+    <!-- Our Report -->
+    <section id="article">
+      <div class="container">
+        <div class="page-container">
+          <article class="card">
+            <img src="../img/article_one/demoTime.svg" height="400" alt="" />
+            <!-- Report Content -->
+            <h1 class="l-heading" id="paragraph-1">SMTP Demonstration</h1>
+            <div class="meta">
+              <small>
+                <i class="fas fa-user"
+                  >Written By Lucas Santos, Omar Khan, and Adam Jemal
+                </i>
+              </small>
+              <div class="category category-ent">DCF255 Final Report</div>
+            </div>
+            <br />
+            <!-- demo 1 -->
+            <h2 id="demo-1">Gmail Demonstration</h2>
+            <p>
+              Utilizing the popular programming language Python, we can program
+              a script which allows us to view the mechanics of how an email is
+              sent using SMTP. For this example, we will be using the Gmail SMTP
+              server to send an email from our script, right to our Gmail inbox.
+              Within Python, we will be using the built-in library smtplib, to
+              send basic emails. This library contains all the SMTP related
+              functions that allow us to connect with a SMTP server as well as
+              encrypt the emails in order to accommodate Gmail’s security
+              features.
+            </p>
+            <br />
+            <img
+              style="border-radius: 5px"
+              frameBorder="0"
+              src="../img/demo/gmail_demo.gif"
+              alt="gmail demo done by Lucas"
+            />
+            <br />
+            <p>
+              To begin the script, we define a few variables to hold
+              information. We utilize a port variable to hold the integer 465,
+              which corresponds to the Gmail SMTP port. We then define both a
+              sender and receiver email which for this example, must end in
+              @gmail.com. Then we define a message variable to contain the
+              contents of what we want our email to include. Lastly, we define a
+              variable context to create a SSL certificate to ensure a secure
+              connection to the Gmail SMTP server.
+            </p>
+            <p>
+              Once all variables are defined, we move onto creating the
+              connection to the SMTP server using the smptlib function
+              SMTP_SLL(). This function creates the TLS certificate connection
+              from our local machine to the Gmail SMTP servers. Using the
+              smtp.gmal.com server name, port number, and context that was
+              previously defined we are able to establish a secure connection to
+              the Gmail SMTP servers. As Gmail is a password protected email
+              service, we need to prompt the user for the password to their
+              Gmail account in order to grant access to the Email services
+              provided by Gmail. Upon successful login, we utilize the
+              sendmail() function to send the email through the Gmail services,
+              and from there Gmail processes the email through their SMTP
+              servers and into the inbox of the receiver.
+            </p>
+            <p>
+              This is a surface level example to how email services function
+              once the “send” button is pushed. Behind the scenes of this, each
+              email provider has their own SMTP server to route all inbound and
+              outbound emails to their corresponding email provider and
+              receiver.
+            </p>
+            <br />
+            <!-- demo 2 -->
+            <h2 id="demo-2">Local Host Demonstration</h2>
+            <br />
+            <img
+              style="border-radius: 5px"
+              frameBorder="0"
+              src="../img/demo/localHost_demo.gif"
+              alt="gmail demo done by Lucas"
+            />
+            <br />
+            <p>
+              Like the previous example of how SMTP functions when using Gmail,
+              we are also able to use an alternate version locally on a user’s
+              pc. We are able to take advantage of using Pythons SMTP debugging
+              server to allow us to communicate with a locally hosted server to
+              practice or test SMTP functions.
+            </p>
+            <p>
+              In order to begin, we must first run the debugging server locally
+              by using the command “Python -m smtpd -c DebuggingServer -n
+              localhost:1025” in the user’s shell of choice. This will turn that
+              specific shells session into the Python SMTP debugging server and
+              will stay actively opening listening for any inbound connections.
+            </p>
+            <p>
+              The script itself is similar to the Gmail example, but omits the
+              need for a SMTP address, and user login. Two noticeable
+              differences are the variables port and server. The port number is
+              changes to 1025, a unused port number we can assign to our
+              localhost server. The server variable is declared as “localhost”
+              as we are using our current machine to host the SMTP server. We
+              utilize the same function of SMPT() to build a connection to the
+              debugging server by using the variables server and port. Since we
+              are using a local server for practice, we omit the use of
+              SMTP_SLL() as we do not require a secured connection. Since our
+              debugging server is waiting listening for a connection, once the
+              server.sendmail() function is passed our debugging server listens
+              to the connection and displays the email within the console.
+            </p>
+            <p>
+              The purpose of a debugging server allows you to practice your
+              script without suffering any severe consequences when connecting
+              to an email providers SMTP server. Additionally, all messages sent
+              are only being displayed as output and are removed after.
+            </p>
+          </article>
+          <!-- categories link list -->
+          <div class="sticky-container">
+            <aside id="categories" class="card sticky-card">
+              <h2>Our Demo</h2>
+              <ul class="list">
+                <li>
+                  <a href="../post/demo.html#demo-1" class="current-v2">
+                    <i class="fas fa-chevron-right"></i>
+                    Gmail Demonstration
+                  </a>
+                </li>
+                <li>
+                  <a href="../post/demo.html#demo-2"
+                    ><i class="fas fa-chevron-right"></i> Local Host
+                    Demonstration</a
+                  >
+                </li>
+                <li>
+                  <a href="../post/article.html"
+                    ><i class="fas fa-chevron-right"></i> Back To SMTP Post</a
+                  >
+                </li>
+              </ul>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- footer -->
+    <footer id="main-footer" class="py-2">
+      <div class="container footer-container">
+        <div>
+          <img
+            src="../img/logo/logo_modificiation.png"
+            alt="findings beyond the classroom"
+          />
+        </div>
+        <div>
+          <h3>informational Sites</h3>
+          <ul class="list">
+            <li><a href="https://owasp.org/www-project-top-ten/">OWASP</a></li>
+            <li>
+              <a href="https://teachyourselfcs.com/">Teach Yourself CS</a>
+            </li>
+            <li>
+              <a href="https://www.senecacollege.ca/home.html"
+                >Seneca College</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h3>Site Links</h3>
+          <ul class="list">
+            <li><a href="../about.html">About Us</a></li>
+            <li><a href="../mission.html">Our Mission</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Want To Reach Us</h2>
+          <p>We are always free to bounce ideas. Shoot us an email!</p>
+          <a href="#" class="btn btn-secondary">Email</a>
+        </div>
+        <div>
+          <p>
+            Made With ❤️ By <a href="https://www.adamjemal.com/"> Adam Jemal</a>
+          </p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
